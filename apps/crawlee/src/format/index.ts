@@ -5,9 +5,11 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 // 使用 bun 对 数据进行格式化
 
-const baseDir = path.join(import.meta.dir, '../../')
+const workspaceDir = process.cwd()
+const outputDir = path.join(workspaceDir, '/packages/shared/src/datasets')
 
-const datasetsDir = path.join(baseDir, 'storage/datasets/default')
+const appDir = path.join(workspaceDir, 'apps/crawlee')
+const datasetsDir = path.join(appDir, 'storage/datasets/default')
 
 //读取该目录
 const fileNames = await fs.readdir(datasetsDir)
@@ -25,5 +27,4 @@ for (const fileName of fileNames) {
   projects.push(...res.items)
 }
 
-Bun.write('output.json', JSON.stringify(projects))
-console.log('total: ', total)
+Bun.write(path.join(outputDir,'output.json'), JSON.stringify(projects))

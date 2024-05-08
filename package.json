@@ -1,11 +1,12 @@
 {
-  "name": "crawler-github-turborepo",
+  "name": "crawlee-github-turborepo",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "crawlee:format": "concurrently -m=1 \"bun run ./apps/crawlee/src/format/index.ts\" "
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -16,5 +17,8 @@
   "packageManager": "pnpm@9.0.5",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
   }
 }

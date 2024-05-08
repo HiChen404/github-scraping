@@ -1,2 +1,2 @@
-import json from './output.json'
-export { json }
+import datasets from './output.json'
+export { datasets }
