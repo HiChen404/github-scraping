@@ -1,9 +1,10 @@
 {
   "name": "@repo/shared",
   "version": "1.0.0",
-  "description": "共享的类型定义，工具等",
+  "description": "共享的类型定义，工具,数据等",
   "exports": {
-    "./types": "./src/types/index.ts"
+    "./types": "./src/types/index.ts",
+    "./datasets": "./src/datasets/index.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
