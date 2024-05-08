@@ -1,0 +1,30 @@
+{
+  "name": "crawler",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "抓取GitHub star 的爬虫",
+  "dependencies": {
+    "crawlee": "^3.0.0"
+  },
+  "devDependencies": {
+    "@repo/shared": "workspace:*",
+    "@apify/tsconfig": "^0.1.0",
+    "@types/bun": "^1.1.1",
+    "@types/node": "^20.0.0",
+    "concurrently": "^8.2.2",
+    "tsx": "^4.4.0",
+    "typescript": "~5.4.0"
+  },
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:prod": "node dist/crawlee/main.js",
+    "start:dev": "tsx src/crawlee/main.ts",
+    "build": "tsc",
+    "format": "bun run --watch src/format/index.ts",
+    "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
+    "run": "concurrently -m=1 \"yarn run start\""
+  },
+  "author": "It's not you it's me",
+  "license": "ISC",
+  "module": "index.ts"
+}
