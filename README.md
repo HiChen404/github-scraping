@@ -1,3 +1,11 @@
+# TODO
+
+1. github star 有很多没有分类的都遗漏了，应该直接抓取所有的数据。
+
+2. 不仅应该抓取所有摘要数据，应该再抓取每个项目的 readme
+
+3. 数据集是否可以多语言翻译，再喂给llm
+
 # Turborepo starter
 
 This is an official starter Turborepo.

@@ -30,4 +30,5 @@ for (const fileName of fileNames) {
   projects.push(...res.items)
 }
 
+console.log('🚀 -> total:', total)
 Bun.write(path.join(outputDir, 'output.json'), JSON.stringify(projects))
