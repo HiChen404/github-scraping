@@ -4,11 +4,11 @@
   "type": "module",
   "description": "抓取GitHub star 的爬虫",
   "dependencies": {
-    "crawlee": "^3.0.0"
+    "crawlee": "^3.10.5"
   },
   "devDependencies": {
-    "@repo/shared": "workspace:*",
     "@apify/tsconfig": "^0.1.0",
+    "@repo/shared": "workspace:*",
     "@types/bun": "^1.1.1",
     "@types/node": "^20.0.0",
     "concurrently": "^8.2.2",
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "npm run start:dev",
     "start:prod": "node dist/crawlee/main.js",
-    "start:dev": "tsx src/crawlee/main.ts",
+    "start:dev": "tsx  src/new-crawlee/main.ts",
     "build": "tsc",
     "format": "bun run --watch src/format/index.ts",
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
