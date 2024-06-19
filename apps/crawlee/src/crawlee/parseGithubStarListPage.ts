@@ -1,5 +1,9 @@
+import { Project } from '@repo/shared/types'
+import { CheerioRoot } from 'crawlee'
 
-const parseGithubStarListPage = async ($: CheerioCrawler) => {
+export const parseGithubStarListPage = async ($: CheerioRoot) => {
+  const items: Project[] = []
+
   $('#user-list-repositories > div:not(.paginate-container)').each((idx, el) => {
     const $el = $(el)
 
@@ -17,6 +21,7 @@ const parseGithubStarListPage = async ($: CheerioCrawler) => {
     )
       .text()
       .trim()
+
     items.push({
       name,
       description,
@@ -27,4 +32,6 @@ const parseGithubStarListPage = async ($: CheerioCrawler) => {
       favorites: [favorite],
     })
   })
+
+  return items
 }
