@@ -4,7 +4,9 @@
   "type": "module",
   "description": "抓取GitHub star 的爬虫",
   "dependencies": {
-    "crawlee": "^3.10.5"
+    "cheerio": "1.0.0-rc.12",
+    "crawlee": "^3.10.5",
+    "playwright": "^1.44.1"
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
@@ -19,6 +21,7 @@
     "start": "npm run start:dev",
     "start:prod": "node dist/crawlee/main.js",
     "start:dev": "tsx  src/new-crawlee/main.ts",
+    "bun:dev": "bun run src/new-crawlee/main.ts",
     "build": "tsc",
     "format": "bun run --watch src/format/index.ts",
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",

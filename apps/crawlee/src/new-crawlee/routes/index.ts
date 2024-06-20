@@ -1,16 +1,24 @@
-import { CheerioRoot, createCheerioRouter, Dataset, Request } from 'crawlee'
+import {
+  CheerioRoot,
+  createCheerioRouter,
+  createPlaywrightRouter,
+  Dataset,
+  PlaywrightCrawlingContext,
+  Request,
+} from 'crawlee'
 import { Project } from '@repo/shared/types'
 import { CheerioCrawlingContext } from 'crawlee'
 import { requestQueue } from '../main.ts'
-export const router = createCheerioRouter()
+// export const router = createCheerioRouter()
+export const router = createPlaywrightRouter()
 
-const parseListPage = async (ctx: CheerioCrawlingContext) => {
-  const $items = ctx.$('#user-starred-repos > div > div.col-lg-9 > div.col-12.d-block')
-
+const parseListPage = async (ctx: PlaywrightCrawlingContext) => {
+  const $ = await ctx.parseWithCheerio()
+  const $items = $('#user-starred-repos > div > div.col-lg-9 > div.col-12.d-block')
   const items: Project[] = []
 
   $items.each((i, el) => {
-    const $item = ctx.$(el)
+    const $item = $(el)
     const $title = $item.find('h3 > a')
 
     const title = $title.text()?.trim()
@@ -24,12 +32,12 @@ const parseListPage = async (ctx: CheerioCrawlingContext) => {
 
     const favorites = $item
       .find('label')
-      .has('[name="list_ids[]"]')
+      .has('input[name="list_ids[]"]')
       .map((i, el) => {
-        const isChecked = ctx.$(el).find('input').attr('checked')
-        const name = ctx.$(el).find('span.Truncate-text').text()
-        console.log('🚀 -> .map -> name:', name)
-        if (isChecked) return name
+        // const isChecked = ctx.$(el).find('input').attr('checked')
+        // const name = ctx.$(el).find('span.Truncate-text').text()
+        // console.log('🚀 -> .map -> name:', name)
+        // if (isChecked) return name
       })
       .toArray()
 
@@ -37,7 +45,7 @@ const parseListPage = async (ctx: CheerioCrawlingContext) => {
       name: title,
       homePage: url || '',
       description: desc || '',
-      favorites: favorites,
+      favorites: [],
       language: language,
       star,
       starTime: '',
@@ -50,8 +58,9 @@ const parseListPage = async (ctx: CheerioCrawlingContext) => {
 let page = 1
 
 router.addHandler('next', async ctx => {
-  const { $ } = ctx
+  console.log('开始')
 
+  const $ = await ctx.parseWithCheerio()
   console.log('当前页数', page)
   console.log('当前url', ctx.request.url)
 
@@ -59,6 +68,9 @@ router.addHandler('next', async ctx => {
     const text = $(el).text()
     return text === 'Previous' || text === 'Next'
   })
+
+
+  console.log(await ctx.page.text());
 
   const preBtn = btns.filter((i, el) => $(el).text() === 'Previous').first()
   const nextBtn = btns.filter((i, el) => $(el).text() === 'Next').first()
