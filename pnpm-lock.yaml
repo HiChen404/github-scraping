@@ -27,80 +27,34 @@ importers:
 
   apps/crawlee:
     dependencies:
-      cheerio:
-        specifier: 1.0.0-rc.12
-        version: 1.0.0-rc.12
+      '@types/bun':
+        specifier: ^1.1.5
+        version: 1.1.5
       crawlee:
-        specifier: ^3.10.5
+        specifier: ^3.0.0
         version: 3.10.5(playwright@1.44.1)
       playwright:
-        specifier: ^1.44.1
+        specifier: '*'
         version: 1.44.1
+      radash:
+        specifier: ^12.1.0
+        version: 12.1.0
     devDependencies:
       '@apify/tsconfig':
         specifier: ^0.1.0
         version: 0.1.0
-      '@repo/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
-      '@types/bun':
-        specifier: ^1.1.1
-        version: 1.1.1
       '@types/node':
         specifier: ^20.0.0
         version: 20.11.24
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
+      ts-node:
+        specifier: ^10.9.2
+        version: 10.9.2(@types/node@20.11.24)(typescript@5.4.5)
       tsx:
         specifier: ^4.4.0
         version: 4.9.3
       typescript:
         specifier: ~5.4.0
         version: 5.4.5
-
-  apps/docs:
-    dependencies:
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      next:
-        specifier: ^14.2.3
-        version: 14.2.3(react-dom@18.2.0(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.3.1)
-    devDependencies:
-      '@next/eslint-plugin-next':
-        specifier: ^14.1.1
-        version: 14.1.1
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/eslint':
-        specifier: ^8.56.5
-        version: 8.56.5
-      '@types/node':
-        specifier: ^20.11.24
-        version: 20.11.24
-      '@types/react':
-        specifier: ^18.2.61
-        version: 18.2.61
-      '@types/react-dom':
-        specifier: ^18.2.19
-        version: 18.2.19
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
 
   apps/website:
     dependencies:
@@ -152,7 +106,7 @@ importers:
         version: 8.4.31
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.3(ts-node@10.9.1(@types/node@20.11.24)(typescript@5.4.5))
+        version: 3.4.3(ts-node@10.9.2(@types/node@20.11.24)(typescript@5.4.5))
       typescript:
         specifier: ^5
         version: 5.4.5
@@ -664,9 +618,6 @@ packages:
   '@next/env@14.2.3':
     resolution: {integrity: sha512-W7fd7IbkfmeeY2gXrzJYDx8D2lWKbVoTIj1o1ScPHNzvp30s1AuoEFSdr39bC5sjxJaxTtq3OTCZboNp0lNWHA==}
 
-  '@next/eslint-plugin-next@14.1.1':
-    resolution: {integrity: sha512-NP1WoGFnFLpqqCWgGFjnn/sTwUExdPyjeFKRdQP1X/bL/tjAQ/TXDmYqw6vzGaP5NaZ2u6xzg+N/0nd7fOPOGQ==}
-
   '@next/eslint-plugin-next@14.2.3':
     resolution: {integrity: sha512-L3oDricIIjgj1AVnRdRor21gI7mShlSwU/1ZGHmqM3LzHhXXhdkrfeNY5zif25Bi5Dd7fiJHsbhoZCHfXYvlAw==}
 
@@ -806,8 +757,8 @@ packages:
     resolution: {integrity: sha512-a1hF8Nr6MOeCpvlLR569dGTlzgRLj2Rxo6dTb4jtL+jhHwCb94A9kDPgcRnYGFr45mgulICarVaNZxDjw4/riQ==}
     hasBin: true
 
-  '@types/bun@1.1.1':
-    resolution: {integrity: sha512-lUe9rLMhgDCViciZtgDj5CMl2u7uTq/IP149kSZH/Si6FWkCioximABFf+baRQgbm8QlH4bzT0qJRteQFNqeGA==}
+  '@types/bun@1.1.5':
+    resolution: {integrity: sha512-7RprVDMF+1o+EWSo7F1+iJpkfNz+Ikw9K//vwambcY+D1QHXfb9l7jWY1hSBfuFEkW9yFAhkMzP2uTi1pQXoqw==}
 
   '@types/content-type@1.1.8':
     resolution: {integrity: sha512-1tBhmVUeso3+ahfyaKluXe38p+94lovUZdoVfQ3OnJo9uJC42JT7CBoN3k9HYhAae+GwiBYmHu+N9FZhOG+2Pg==}
@@ -841,6 +792,9 @@ packages:
 
   '@types/node@20.11.24':
     resolution: {integrity: sha512-Kza43ewS3xoLgCEpQrsT+xRo/EJej1y0kVYGiLFE1NEODXGzTfwiC6tXTLMQskn1X4/Rjlh0MQUvx9W+L9long==}
+
+  '@types/node@20.12.14':
+    resolution: {integrity: sha512-scnD59RpYD91xngrQQLGkE+6UrHUPzeKZWhhjBSa3HSkwjbQc38+q3RoIVEwxQGRw3M+j5hpNAM+lgV3cVormg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1240,8 +1194,8 @@ packages:
   builtins@5.0.1:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
 
-  bun-types@1.1.6:
-    resolution: {integrity: sha512-LK2aaJdBBTUkDyN+kRiJHLF3VGrAcdkEHrbBvbmTkccShPw6ZalxxKjWSBJwn4UkikhZdrdA87bZWmfUgkRUYg==}
+  bun-types@1.1.14:
+    resolution: {integrity: sha512-esfxOvECTkjEuUEHBOoOo590Qggf4b9cz5h29AOB2SKt3yZwG3LbAX4iIYwWZX7GnO7vaY5hIdcQygwN0xGdNw==}
 
   bundle-name@3.0.0:
     resolution: {integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==}
@@ -3075,6 +3029,10 @@ packages:
     resolution: {integrity: sha512-MX8gB7cVYTrYcFfAnfLlhRd0+Toyl8yX8uBx1MrX7K0jegiz9TumwOK27ldXrgDlHRdVi+MqU9Ssw6dr4BNreg==}
     engines: {node: '>=18'}
 
+  radash@12.1.0:
+    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
+    engines: {node: '>=14.18.0'}
+
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
@@ -3578,8 +3536,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  ts-node@10.9.1:
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  ts-node@10.9.2:
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
@@ -4436,10 +4394,6 @@ snapshots:
 
   '@next/env@14.2.3': {}
 
-  '@next/eslint-plugin-next@14.1.1':
-    dependencies:
-      glob: 10.3.10
-
   '@next/eslint-plugin-next@14.2.3':
     dependencies:
       glob: 10.3.10
@@ -4545,7 +4499,7 @@ snapshots:
       minimatch: 9.0.3
       node-plop: 0.26.3
       proxy-agent: 6.3.0
-      ts-node: 10.9.1(@types/node@20.11.24)(typescript@5.3.3)
+      ts-node: 10.9.2(@types/node@20.11.24)(typescript@5.3.3)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.0
     transitivePeerDependencies:
@@ -4570,9 +4524,9 @@ snapshots:
       semver: 7.5.4
       update-check: 1.5.4
 
-  '@types/bun@1.1.1':
+  '@types/bun@1.1.5':
     dependencies:
-      bun-types: 1.1.6
+      bun-types: 1.1.14
 
   '@types/content-type@1.1.8': {}
 
@@ -4611,6 +4565,10 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
+  '@types/node@20.12.14':
+    dependencies:
+      undici-types: 5.26.5
+
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/prop-types@15.7.5': {}
@@ -4643,7 +4601,7 @@ snapshots:
 
   '@types/ws@8.5.10':
     dependencies:
-      '@types/node': 20.11.24
+      '@types/node': 20.12.14
 
   '@typescript-eslint/eslint-plugin@6.17.0(@typescript-eslint/parser@6.17.0(eslint@8.57.0)(typescript@5.3.3))(eslint@8.57.0)(typescript@5.3.3)':
     dependencies:
@@ -5132,9 +5090,9 @@ snapshots:
     dependencies:
       semver: 7.5.4
 
-  bun-types@1.1.6:
+  bun-types@1.1.14:
     dependencies:
-      '@types/node': 20.11.24
+      '@types/node': 20.12.14
       '@types/ws': 8.5.10
 
   bundle-name@3.0.0:
@@ -7270,13 +7228,13 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.31
 
-  postcss-load-config@4.0.2(postcss@8.4.31)(ts-node@10.9.1(@types/node@20.11.24)(typescript@5.4.5)):
+  postcss-load-config@4.0.2(postcss@8.4.31)(ts-node@10.9.2(@types/node@20.11.24)(typescript@5.4.5)):
     dependencies:
       lilconfig: 3.1.1
       yaml: 2.4.2
     optionalDependencies:
       postcss: 8.4.31
-      ts-node: 10.9.1(@types/node@20.11.24)(typescript@5.4.5)
+      ts-node: 10.9.2(@types/node@20.11.24)(typescript@5.4.5)
 
   postcss-nested@6.0.1(postcss@8.4.31):
     dependencies:
@@ -7349,6 +7307,8 @@ snapshots:
   quick-lru@5.1.1: {}
 
   quick-lru@7.0.0: {}
+
+  radash@12.1.0: {}
 
   rc@1.2.8:
     dependencies:
@@ -7789,7 +7749,7 @@ snapshots:
       '@pkgr/utils': 2.4.2
       tslib: 2.6.2
 
-  tailwindcss@3.4.3(ts-node@10.9.1(@types/node@20.11.24)(typescript@5.4.5)):
+  tailwindcss@3.4.3(ts-node@10.9.2(@types/node@20.11.24)(typescript@5.4.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -7808,7 +7768,7 @@ snapshots:
       postcss: 8.4.31
       postcss-import: 15.1.0(postcss@8.4.31)
       postcss-js: 4.0.1(postcss@8.4.31)
-      postcss-load-config: 4.0.2(postcss@8.4.31)(ts-node@10.9.1(@types/node@20.11.24)(typescript@5.4.5))
+      postcss-load-config: 4.0.2(postcss@8.4.31)(ts-node@10.9.2(@types/node@20.11.24)(typescript@5.4.5))
       postcss-nested: 6.0.1(postcss@8.4.31)
       postcss-selector-parser: 6.0.16
       resolve: 1.22.8
@@ -7890,7 +7850,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.1(@types/node@20.11.24)(typescript@5.3.3):
+  ts-node@10.9.2(@types/node@20.11.24)(typescript@5.3.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.9
@@ -7908,7 +7868,7 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  ts-node@10.9.1(@types/node@20.11.24)(typescript@5.4.5):
+  ts-node@10.9.2(@types/node@20.11.24)(typescript@5.4.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.9
@@ -7925,7 +7885,6 @@ snapshots:
       typescript: 5.4.5
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
-    optional: true
 
   tsconfig-paths@3.14.2:
     dependencies:

@@ -8,7 +8,7 @@ export interface DataJSON {
 export interface Project {
   name: string
   description: string
-  language: string
+  language?: string
   star: string
   homePage: string
   starTime: string

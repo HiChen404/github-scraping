@@ -1,33 +1,31 @@
 {
-  "name": "crawler",
+  "name": "my-crawler",
   "version": "0.0.1",
   "type": "module",
-  "description": "抓取GitHub star 的爬虫",
+  "description": "This is an example of a Crawlee project.",
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
-    "crawlee": "^3.10.5",
-    "playwright": "^1.44.1"
+    "@types/bun": "^1.1.5",
+    "crawlee": "^3.0.0",
+    "playwright": "*",
+    "radash": "^12.1.0"
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
-    "@repo/shared": "workspace:*",
-    "@types/bun": "^1.1.1",
     "@types/node": "^20.0.0",
-    "concurrently": "^8.2.2",
+    "ts-node": "^10.9.2",
     "tsx": "^4.4.0",
     "typescript": "~5.4.0"
   },
   "scripts": {
     "start": "npm run start:dev",
-    "start:prod": "node dist/crawlee/main.js",
-    "start:dev": "tsx  src/new-crawlee/main.ts",
-    "bun:dev": "bun run src/new-crawlee/main.ts",
+    "start:prod": "node dist/main.js",
+    "start:dev": "tsx src/main.ts",
+    "format":"bun run ./src/format.ts",
+    "crawl_and_format": "pnpm run start:dev & yarn run format",
     "build": "tsc",
-    "format": "bun run --watch src/format/index.ts",
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
-    "run": "concurrently -m=1 \"yarn run start\""
+    "postinstall": "npx crawlee install-playwright-browsers"
   },
   "author": "It's not you it's me",
-  "license": "ISC",
-  "module": "index.ts"
+  "license": "ISC"
 }
